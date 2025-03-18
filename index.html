@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Skytup Developer Portal - APIs, Tools & Tutorials</title>
+    <meta name="description" content="Explore the Skytup Developer Portal for APIs, SDKs, and tutorials to build with Skytup. Documentation and tools coming soon!">
+    <meta name="keywords" content="Skytup, developer portal, API, SDK, tutorials, programming, software development">
+    <meta name="author" content="Skytup">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="Skytup Developer Portal">
+    <meta property="og:description" content="APIs, tools, and tutorials for developers building with Skytup. Stay tuned for updates!">
+    <meta property="og:url" content="https://developer.skytup.com">
+    <meta property="og:type" content="website">
+    <!--meta property="og:image" content="https://skytup.com/assets/developer-portal-og-image.jpg"--> <!-- Replace with actual image -->
+    <!-- Twitter Card Tags -->
+    <!--meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Skytup Developer Portal">
+    <meta name="twitter:description" content="APIs, tools, and tutorials for developers. Coming soon!">
+    <meta name="twitter:image" content="https://skytup.com/assets/developer-portal-og-image.jpg"--> <!-- Replace with actual image -->
+    <!-- Favicon -->
+    <link rel="icon" href="https://developer.skytup.com/favicon.ico" type="image/x-icon"> <!-- Replace with actual favicon -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 0.2; }
+        }
+
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(90deg, #00ffcc, #ff00cc, #00ccff);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0%; }
+            50% { background-position: 100%; }
+            100% { background-position: 0%; }
+        }
+
+        .orbit-container {
+            position: relative;
+            width: clamp(150px, 40vw, 300px);
+            height: clamp(150px, 40vw, 300px);
+            margin: 2rem auto;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed #ffffff44;
+            border-radius: 50%;
+            animation: orbit 12s linear infinite;
+        }
+
+        .planet {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #00ffcc;
+            border-radius: 50%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ffcc;
+        }
+
+        .coming-soon {
+            font-style: italic;
+            color: #ff00cc;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            padding: 1.5rem;
+            text-align: center;
+            color: #ffffff88;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #00ffcc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ff00cc;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .orbit-container {
+                margin: 1rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <header>
+        <h1>Skytup Developer Portal</h1>
+    </header>
+
+    <div class="orbit-container">
+        <div class="orbit">
+            <div class="planet"></div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="card">
+            <h2>API Documentation</h2>
+            <p class="coming-soon">Detailed API docs coming soon...</p>
+        </section>
+
+        <section class="card">
+            <h2>Developer Tools</h2>
+            <p class="coming-soon">SDKs and tools coming soon...</p>
+        </section>
+
+        <section class="card">
+            <h2>Examples & Tutorials</h2>
+            <p class="coming-soon">Code samples coming soon...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 <a href="https://skytup.com">Skytup</a>. All rights reserved.</p>
+    </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Skytup Developer Portal",
+        "description": "The official developer portal for Skytup, providing APIs, SDKs, and tutorials for building innovative solutions.",
+        "url": "https://developer.skytup.com",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Skytup",
+            "url": "https://skytup.com"
+        },
+        "mainEntity": [
+            {
+                "@type": "CreativeWork",
+                "name": "API Documentation",
+                "description": "Coming soon: Detailed documentation for Skytup APIs."
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "Developer Tools",
+                "description": "Coming soon: SDKs and tools for developers."
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "Examples & Tutorials",
+                "description": "Coming soon: Code samples and tutorials."
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        const numStars = Math.floor(window.innerWidth / 10);
+
+        function createStars() {
+            starsContainer.innerHTML = '';
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+        window.addEventListener('resize', createStars);
+    </script>
+</body>
+</html>
